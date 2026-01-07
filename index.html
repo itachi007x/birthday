@@ -137,7 +137,10 @@
 <div id="page1" class="page active">
     <h1>Happy Birthday Siya 🎂❤️</h1>
     <div id="word-container" style="font-size: 3rem; font-weight: bold;"></div>
-    <button class="btn" onclick="nextPage(2)">Start Celebration ✨</button>
+    <button class="btn" onclick="playMusic(); nextPage(2)">
+    Start Celebration ✨
+</button>
+
 </div>
 
 <!-- PAGE 2 -->
@@ -159,6 +162,9 @@
         <p>❤️❤️❤️</p>
     </div>
 </div>
+<audio id="bg-music" loop>
+  <source src="./music/birthday.mp3" type="audio/mpeg">
+</audio>
 
 <script>
     /* Typing Effect */
@@ -198,11 +204,18 @@ const siyaPhotos = [
             </div>
         `;
     });
+    function playMusic() {
+    const music = document.getElementById("bg-music");
+    music.play();
+}
 
-    function nextPage(num) {
-        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        document.getElementById('page' + num).classList.add('active');
-    }
+function nextPage(num) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page' + num).classList.add('active');
+
+    const music = document.getElementById("bg-music");
+    music.play();
+}
 
     /* Heart Background Animation */
     setInterval(() => {
@@ -220,5 +233,6 @@ const siyaPhotos = [
 </body>
 
 </html>
+
 
 
